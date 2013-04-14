@@ -18,5 +18,5 @@ urlpatterns = patterns('twython_django_oauth.views',
 	url(r'^user_timeline/?$', "user_timeline", name="twitter_timeline"),
 	
 	#Url definition for identifying who is not following you back.
-	url(r'^unfollow_bums/?$', "unfollow_bums", name="unfollow_bums"),
+	url(r'^show_bums/?$', "show_bums", name="show_bums"),
 )
