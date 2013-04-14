@@ -17,6 +17,6 @@ urlpatterns = patterns('twython_django_oauth.views',
 	# this view and url definition to get the rest of your desired pages/functionality.
 	url(r'^user_timeline/?$', "user_timeline", name="twitter_timeline"),
 	
-	#Url definition for identifying who is not following you back.
-	url(r'^show_bums/?$', "show_bums", name="show_bums"),
+	#Url definition for successful login page. Redirect in Settings.py.
+	url(r'^logged_in/?$', "logged_in", name="logged_in"),
 )
