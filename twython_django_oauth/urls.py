@@ -16,4 +16,7 @@ urlpatterns = patterns('twython_django_oauth.views',
 	# An example view using a Twython method with proper OAuth credentials. Clone
 	# this view and url definition to get the rest of your desired pages/functionality.
 	url(r'^user_timeline/?$', "user_timeline", name="twitter_timeline"),
+	
+	#Url definition for identifying who is not following you back.
+	url(r'^unfollow_bums/?$', "unfollow_bums", name="unfollow_bums"),
 )
