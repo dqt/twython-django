@@ -103,12 +103,9 @@ def logged_in(request):
 		oauth_token = user.oauth_token,
 		oauth_token_secret = user.oauth_secret
 	)
-	user_name = twitter.screen_name
-	tweet_number = twitter.statuses_count
-	following_number = twitter.friends_count
-	follower_number = twitter.followers_count
-	
-	return render_to_response('logged_in.html', {'username': user_name,
-	                                        'tweetnumber': tweet_number,
-	                                        'followingnumber': following_number,
-	                                        'followernumber': follower_number})
+	user_data = twitter.verifyCredentials()
+
+	return render_to_response('logged_in.html', {'username': user_data['screen_name'],
+	                                        'tweetnumber': user_data['statuses_count'],
+	                                        'followingnumber': user_data['friends_count'],
+	                                        'followernumber': user_data['followers_count']})
