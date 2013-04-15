@@ -95,17 +95,15 @@ def user_timeline(request):
 	user_tweets = twitter.getHomeTimeline()
 	return render_to_response('tweets.html', {'tweets': user_tweets})
 	
+
 def logged_in(request):
 	user = request.user.twitterprofile
-	twitter = Twython(
-		twitter_token = settings.TWITTER_KEY,
+		twitter = Twython(
+		twitter_token= settings.TWITTER_KEY,
 		twitter_secret = settings.TWITTER_SECRET,
 		oauth_token = user.oauth_token,
 		oauth_token_secret = user.oauth_secret
-	)
+	    )
 	user_data = twitter.verifyCredentials()
-
-	return render_to_response('logged_in.html', {'username': user_data['screen_name'],
-	                                        'tweetnumber': user_data['statuses_count'],
-	                                        'followingnumber': user_data['friends_count'],
-	                                        'followernumber': user_data['followers_count']})
+	
+	return render_to_response('logged_in.html', {'user_data': user_data})
