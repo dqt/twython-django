@@ -98,7 +98,7 @@ def user_timeline(request):
 
 def logged_in(request):
 	user = request.user.twitterprofile
-		twitter = Twython(
+	twitter = Twython(
 		twitter_token= settings.TWITTER_KEY,
 		twitter_secret = settings.TWITTER_SECRET,
 		oauth_token = user.oauth_token,
